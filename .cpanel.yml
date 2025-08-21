@@ -1,31 +1,42 @@
 ---
 deployment:
   tasks:
-    # Install dependencies
+    # Set deployment path
     - export DEPLOYPATH=/home/$USER/public_html
-    - cd $DEPLOYPATH
-    - npm ci --production
+    - export REPOPATH=/home/$USER/repositories/apcpa-website
+    
+    # Ensure we're in the repository directory
+    - cd $REPOPATH
+    
+    # Install dependencies (production only)
+    - npm ci --only=production
     
     # Build the application
     - npm run build
     
+    # Remove old files from deployment path (except .htaccess)
+    - find $DEPLOYPATH -mindepth 1 -not -name '.htaccess' -not -name '.well-known' -delete
+    
     # Copy built files to web root
     - cp -R dist/* $DEPLOYPATH/
+    
+    # Copy public assets if they exist
+    - if [ -d "public" ]; then cp -R public/* $DEPLOYPATH/; fi
     
     # Set proper permissions
     - find $DEPLOYPATH -type f -exec chmod 644 {} \;
     - find $DEPLOYPATH -type d -exec chmod 755 {} \;
     
-    # Ensure .git directory is not publicly accessible
-    - echo "deny from all" > $DEPLOYPATH/.git/.htaccess
+    # Ensure .git directory is not publicly accessible (if it exists)
+    - if [ -d "$DEPLOYPATH/.git" ]; then echo "deny from all" > $DEPLOYPATH/.git/.htaccess; fi
     
-    # Create .htaccess for SPA routing
+    # Create .htaccess for SPA routing and security
     - |
       cat > $DEPLOYPATH/.htaccess << 'EOF'
       RewriteEngine On
       RewriteBase /
       
-      # Handle Angular and React Router
+      # Handle React Router (SPA routing)
       RewriteRule ^index\.html$ - [L]
       RewriteCond %{REQUEST_FILENAME} !-f
       RewriteCond %{REQUEST_FILENAME} !-d
@@ -38,17 +49,41 @@ deployment:
       Header always set Referrer-Policy "strict-origin-when-cross-origin"
       
       # Cache static assets
-      <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+      <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webp)$">
         ExpiresActive On
         ExpiresDefault "access plus 1 year"
+        Header set Cache-Control "public, immutable"
+      </FilesMatch>
+      
+      # Cache HTML files for shorter period
+      <FilesMatch "\.(html|htm)$">
+        ExpiresActive On
+        ExpiresDefault "access plus 1 hour"
+        Header set Cache-Control "public, must-revalidate"
       </FilesMatch>
       
       # Deny access to sensitive files
-      <FilesMatch "\.(env|log|json)$">
+      <FilesMatch "\.(env|log|json|yml|yaml|md)$">
         Order allow,deny
         Deny from all
       </FilesMatch>
       
       # Deny access to .git directory
       RedirectMatch 404 /\.git
+      
+      # Deny access to node_modules
+      RedirectMatch 404 /node_modules
+      
+      # Enable Gzip compression
+      <IfModule mod_deflate.c>
+        AddOutputFilterByType DEFLATE text/plain
+        AddOutputFilterByType DEFLATE text/html
+        AddOutputFilterByType DEFLATE text/xml
+        AddOutputFilterByType DEFLATE text/css
+        AddOutputFilterByType DEFLATE application/xml
+        AddOutputFilterByType DEFLATE application/xhtml+xml
+        AddOutputFilterByType DEFLATE application/rss+xml
+        AddOutputFilterByType DEFLATE application/javascript
+        AddOutputFilterByType DEFLATE application/x-javascript
+      </IfModule>
       EOF

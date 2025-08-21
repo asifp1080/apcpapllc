@@ -26,6 +26,14 @@ This guide outlines the steps to deploy the AP CPA PLLC website to cPanel using 
 2. Generate a new key pair or upload existing public key
 3. Add the public key to your Git provider (GitHub/GitLab)
 
+### 2.1. Important: Repository Path Configuration
+
+When setting up the Git repository in cPanel, make sure to use:
+- **Repository Path**: `/home/[username]/repositories/apcpa-website`
+- **Deployment Path**: `/home/[username]/public_html`
+
+The `.cpanel.yml` file expects the repository to be in the `repositories/apcpa-website` directory.
+
 ### 3. Deployment Configuration
 
 The `.cpanel.yml` file in the repository root contains the deployment configuration:
@@ -91,10 +99,29 @@ For automatic deployment on code changes:
 
 ### Common Issues:
 
-1. **Build fails**: Check Node.js version compatibility
-2. **404 errors**: Verify `.htaccess` is properly configured for SPA routing
-3. **Permission errors**: Ensure proper file permissions are set
-4. **Assets not loading**: Check file paths and build output
+1. **Blank page after deployment**:
+   - Check if the repository path in cPanel matches `/home/[username]/repositories/apcpa-website`
+   - Verify that `npm ci` and `npm run build` completed successfully in deployment logs
+   - Ensure the `dist/` directory was created and contains `index.html`
+   - Check browser console for JavaScript errors
+
+2. **Build fails**: 
+   - Check Node.js version compatibility (requires Node.js 18+)
+   - Verify all dependencies are listed in `package.json`
+   - Check for TypeScript compilation errors
+
+3. **404 errors**: 
+   - Verify `.htaccess` is properly configured for SPA routing
+   - Check if the `.htaccess` file was created in the web root
+
+4. **Permission errors**: 
+   - Ensure proper file permissions are set (644 for files, 755 for directories)
+   - Check that the cPanel user owns all deployed files
+
+5. **Assets not loading**: 
+   - Check file paths and build output
+   - Verify that assets were copied from both `dist/` and `public/` directories
+   - Check browser network tab for failed asset requests
 
 ### Logs:
 
