@@ -2,13 +2,169 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/webp" href="/assets/favicon.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>AP CPA PLLC - Certified Public Accountants in Houston, TX</title>
+    <meta
+      name="description"
+      content="Professional accounting and tax services in Houston, TX. AP CPA PLLC provides comprehensive tax preparation, bookkeeping, payroll, and business advisory services."
+    />
+    <meta
+      name="keywords"
+      content="CPA, accounting, tax preparation, bookkeeping, payroll, Houston, Texas, business compliance, IRS representation, advisory services"
+    />
+    <meta name="author" content="AP CPA PLLC" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://apcpapllc.com/" />
+    <meta
+      property="og:title"
+      content="AP CPA PLLC - Certified Public Accountants in Houston, TX"
+    />
+    <meta
+      property="og:description"
+      content="Professional accounting and tax services in Houston, TX. AP CPA PLLC provides comprehensive tax preparation, bookkeeping, payroll, and business advisory services."
+    />
+    <meta
+      property="og:image"
+      content="https://apcpapllc.com/assets/apcpa_logo.webp"
+    />
+    <meta property="og:site_name" content="AP CPA PLLC" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://apcpapllc.com/" />
+    <meta
+      property="twitter:title"
+      content="AP CPA PLLC - Certified Public Accountants in Houston, TX"
+    />
+    <meta
+      property="twitter:description"
+      content="Professional accounting and tax services in Houston, TX. AP CPA PLLC provides comprehensive tax preparation, bookkeeping, payroll, and business advisory services."
+    />
+    <meta
+      property="twitter:image"
+      content="https://apcpapllc.com/assets/apcpa_logo.webp"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://apcpapllc.com/" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://apcpapllc.com/#organization",
+        "name": "AP CPA PLLC",
+        "alternateName": "AP CPA",
+        "url": "https://apcpapllc.com",
+        "logo": "https://apcpapllc.com/assets/apcpa_logo.webp",
+        "description": "Professional accounting and tax services in Houston, TX. We provide comprehensive tax preparation, bookkeeping, payroll, and business advisory services.",
+        "priceRange": "$",
+        "telephone": "+17133382520",
+        "email": "contactus@apcpapllc.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6161 Savoy Dr #610",
+          "addressLocality": "Houston",
+          "addressRegion": "TX",
+          "postalCode": "77036",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 29.72386597564055,
+          "longitude": -95.49860492392756
+        },
+        "openingHours": ["Mo-Fr 09:00-17:00"],
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 29.72386597564055,
+            "longitude": -95.49860492392756
+          },
+          "geoRadius": "50000"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Accounting Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tax Preparation",
+                "description": "Comprehensive tax preparation services for individuals and businesses"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bookkeeping",
+                "description": "Accurate and timely bookkeeping services"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Payroll Services",
+                "description": "Complete payroll processing and compliance"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Business Compliance",
+                "description": "Comprehensive business compliance services"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Advisory Services",
+                "description": "Strategic financial advice and planning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "IRS Representation",
+                "description": "Professional representation before tax authorities"
+              }
+            }
+          ]
+        },
+        "sameAs": ["https://apcpapllc.com"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GA_MEASUREMENT_ID");
+    </script>
+
     <script src="https://api.tempo.build/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js"></script>
   </body>
 </html>
