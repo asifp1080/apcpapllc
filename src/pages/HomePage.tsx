@@ -16,7 +16,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ArrowRight,
+  Star,
+  Quote,
+  CheckCircle,
+  Users,
+  Award,
+  TrendingUp,
+} from "lucide-react";
 import MapLocation from "../components/MapLocation";
 
 const HomePage = () => {
@@ -268,172 +280,122 @@ const HomePage = () => {
       </Helmet>
       <div className="flex flex-col min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-[#3B7FB4] to-[#336a96] text-white py-20 md:py-32 overflow-hidden">
-          <Carousel className="absolute inset-0">
-            <CarouselContent>
-              <CarouselItem className="relative">
-                <div className="absolute inset-0 bg-black/40 z-10"></div>
-                <img
-                  src="/assets/cpa-consultation.webp"
-                  alt="Professional CPA Consultation"
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 z-20 flex items-center">
-                  <div className="container mx-auto px-4">
-                    <div className="max-w-4xl">
-                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                        AP CPA PLLC
-                      </h1>
-                      <p className="text-xl md:text-2xl mb-8 text-blue-100">
-                        Expert Financial Consultation
-                      </p>
-                      <p className="text-lg mb-8 text-blue-50 max-w-2xl">
-                        Our experienced CPAs provide personalized financial
-                        guidance and strategic planning to help you make
-                        informed decisions for your business and personal
-                        finances.
-                      </p>
-                      <div className="flex flex-wrap gap-4">
-                        <Button
-                          asChild
-                          className="bg-white text-[#3B7FB4] hover:bg-gray-100 font-semibold"
-                        >
-                          <a href="/services">View Our Services</a>
-                        </Button>
-                        <Button
-                          asChild
-                          variant="outline"
-                          className="border-white text-white hover:bg-white hover:text-[#3B7FB4] font-semibold transition-colors bg-transparent"
-                        >
-                          <a href="/contact">Contact Information</a>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+        <section className="relative bg-gradient-to-br from-[#3B7FB4] via-[#336a96] to-[#2a5a7a] text-white min-h-screen flex items-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent z-10"></div>
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/assets/cpa-consultation.webp"
+              alt="Professional CPA Consultation"
+              className="w-full h-full object-cover object-center opacity-20"
+            />
+          </div>
+          <div className="container mx-auto container-padding relative z-20">
+            <div className="max-w-4xl animate-fade-in">
+              <div className="mb-6">
+                <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-blue-100 mb-4">
+                  🏆 Trusted by 500+ Houston Businesses
+                </span>
+              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
+                Your Trusted{" "}
+                <span className="text-yellow-300">CPA Partners</span> in Houston
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-blue-100 font-light leading-relaxed max-w-3xl">
+                Expert accounting, tax preparation, and business advisory
+                services designed to help you achieve financial success and
+                peace of mind.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 mb-12">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-[#3B7FB4] hover:bg-gray-100 font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 px-8 py-4 text-lg"
+                >
+                  <a href="/contact">Get Free Consultation</a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#3B7FB4] font-semibold transition-all duration-300 bg-transparent hover:scale-105 px-8 py-4 text-lg"
+                >
+                  <a href="/services">View Our Services</a>
+                </Button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div className="flex items-center justify-center space-x-3">
+                  <CheckCircle className="h-6 w-6 text-green-400" />
+                  <span className="text-blue-100">20+ Years Experience</span>
                 </div>
-              </CarouselItem>
-              <CarouselItem className="relative">
-                <div className="absolute inset-0 bg-black/40 z-10"></div>
-                <img
-                  src="/assets/office-team.webp"
-                  alt="Professional Accounting Team"
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 z-20 flex items-center">
-                  <div className="container mx-auto px-4">
-                    <div className="max-w-4xl">
-                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                        AP CPA PLLC
-                      </h1>
-                      <p className="text-xl md:text-2xl mb-8 text-blue-100">
-                        Comprehensive Accounting Services
-                      </p>
-                      <p className="text-lg mb-8 text-blue-50 max-w-2xl">
-                        From tax preparation and bookkeeping to payroll services
-                        and business compliance, our full-service team delivers
-                        accurate, timely solutions for all your accounting
-                        needs.
-                      </p>
-                      <div className="flex flex-wrap gap-4">
-                        <Button
-                          asChild
-                          className="bg-white text-[#3B7FB4] hover:bg-gray-100 font-semibold"
-                        >
-                          <a href="/services">View Our Services</a>
-                        </Button>
-                        <Button
-                          asChild
-                          variant="outline"
-                          className="border-white text-white hover:bg-white hover:text-[#3B7FB4] font-semibold transition-colors bg-transparent"
-                        >
-                          <a href="/contact">Contact Information</a>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="flex items-center justify-center space-x-3">
+                  <Users className="h-6 w-6 text-green-400" />
+                  <span className="text-blue-100">500+ Satisfied Clients</span>
                 </div>
-              </CarouselItem>
-              <CarouselItem className="relative">
-                <div className="absolute inset-0 bg-black/40 z-10"></div>
-                <img
-                  src="/assets/houston-skyline.webp"
-                  alt="Houston Texas Skyline"
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 z-20 flex items-center">
-                  <div className="container mx-auto px-4">
-                    <div className="max-w-4xl">
-                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                        AP CPA PLLC
-                      </h1>
-                      <p className="text-xl md:text-2xl mb-8 text-blue-100">
-                        Trusted Professionals in Houston, TX
-                      </p>
-                      <p className="text-lg mb-8 text-blue-50 max-w-2xl">
-                        With over 20 years of experience serving the Houston
-                        community, we combine local expertise with professional
-                        excellence to deliver exceptional accounting services
-                        you can trust.
-                      </p>
-                      <div className="flex flex-wrap gap-4">
-                        <Button
-                          asChild
-                          className="bg-white text-[#3B7FB4] hover:bg-gray-100 font-semibold"
-                        >
-                          <a href="/services">View Our Services</a>
-                        </Button>
-                        <Button
-                          asChild
-                          variant="outline"
-                          className="border-white text-white hover:bg-white hover:text-[#3B7FB4] font-semibold transition-colors bg-transparent"
-                        >
-                          <a href="/contact">Contact Information</a>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+                <div className="flex items-center justify-center space-x-3">
+                  <Award className="h-6 w-6 text-green-400" />
+                  <span className="text-blue-100">Licensed CPAs</span>
                 </div>
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious className="left-4 text-white border-white hover:bg-white hover:text-[#3B7FB4] z-30" />
-            <CarouselNext className="right-4 text-white border-white hover:bg-white hover:text-[#3B7FB4] z-30" />
-          </Carousel>
+              </div>
+            </div>
+          </div>
         </section>
 
-        {/* At a Glance Facts */}
-        <section className="py-12 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              <div className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-3xl font-bold text-[#3B7FB4] mb-2">20+</h3>
-                <p className="text-gray-600">Years of Experience</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-3xl font-bold text-[#3B7FB4] mb-2">6+</h3>
-                <p className="text-gray-600">Services Offered</p>
-              </div>
-              <div className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-3xl font-bold text-[#3B7FB4] mb-2">
-                  Houston, TX
+        {/* Trust Indicators */}
+        <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+          <div className="container mx-auto container-padding">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+              <div className="group p-8 bg-white rounded-2xl shadow-lg hover-lift animate-scale-in border-l-4 border-[#3B7FB4]">
+                <TrendingUp className="h-12 w-12 text-[#3B7FB4] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-4xl font-serif font-bold text-[#3B7FB4] mb-3">
+                  20+
                 </h3>
-                <p className="text-gray-600">Primary Location</p>
+                <p className="text-gray-600 font-medium">Years of Experience</p>
               </div>
-              <div className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-3xl font-bold text-[#3B7FB4] mb-2">CPA</h3>
-                <p className="text-gray-600">Licensed & Certified</p>
+              <div
+                className="group p-8 bg-white rounded-2xl shadow-lg hover-lift animate-scale-in border-l-4 border-[#3B7FB4]"
+                style={{ animationDelay: "0.1s" }}
+              >
+                <CheckCircle className="h-12 w-12 text-[#3B7FB4] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-4xl font-serif font-bold text-[#3B7FB4] mb-3">
+                  500+
+                </h3>
+                <p className="text-gray-600 font-medium">Happy Clients</p>
+              </div>
+              <div
+                className="group p-8 bg-white rounded-2xl shadow-lg hover-lift animate-scale-in border-l-4 border-[#3B7FB4]"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <MapPin className="h-12 w-12 text-[#3B7FB4] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-2xl font-serif font-bold text-[#3B7FB4] mb-3">
+                  Houston
+                </h3>
+                <p className="text-gray-600 font-medium">Local Expertise</p>
+              </div>
+              <div
+                className="group p-8 bg-white rounded-2xl shadow-lg hover-lift animate-scale-in border-l-4 border-[#3B7FB4]"
+                style={{ animationDelay: "0.3s" }}
+              >
+                <Award className="h-12 w-12 text-[#3B7FB4] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-4xl font-serif font-bold text-[#3B7FB4] mb-3">
+                  CPA
+                </h3>
+                <p className="text-gray-600 font-medium">
+                  Licensed & Certified
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Service Highlights */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <section className="section-padding bg-white">
+          <div className="container mx-auto container-padding">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 gradient-text">
                 Our Services
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <div className="w-24 h-1 bg-gradient-to-r from-[#3B7FB4] to-[#336a96] mx-auto mb-6 rounded-full"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We provide a comprehensive range of accounting and tax services
                 to meet your personal and business needs.
               </p>
@@ -462,121 +424,128 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* About Snippet with Carousel */}
+        {/* Client Testimonials */}
         <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-1/2">
-                <Carousel className="w-full max-w-lg mx-auto h-[400px]">
-                  <CarouselContent className="h-full">
-                    <CarouselItem className="h-full">
-                      <div className="relative h-full flex items-center justify-center">
-                        <img
-                          src="/assets/cpa-consultation-new.webp"
-                          alt="Professional CPA Consultation"
-                          className="rounded-lg shadow-lg max-w-full max-h-full object-contain"
+          <div className="container mx-auto container-padding">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 gradient-text">
+                What Our Clients Say
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#3B7FB4] to-[#336a96] mx-auto mb-6 rounded-full"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Don't just take our word for it. Here's what our satisfied
+                clients have to say about our services.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card className="bg-white shadow-lg hover-lift border-0 rounded-2xl">
+                <CardContent className="pt-8">
+                  <div className="flex items-center mb-4">
+                    <Quote className="h-8 w-8 text-[#3B7FB4] mr-3" />
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 fill-yellow-400 text-yellow-400"
                         />
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="h-full">
-                      <div className="relative h-full flex items-center justify-center">
-                        <img
-                          src="/assets/office-team.webp"
-                          alt="Professional Accounting Team"
-                          className="rounded-lg shadow-lg max-w-full max-h-full object-contain"
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-6 italic leading-relaxed">
+                    &quot;AP CPA PLLC has been handling our business taxes for
+                    over 5 years. Their attention to detail and proactive
+                    approach has saved us thousands in potential penalties.
+                    Highly recommended!&quot;
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-[#3B7FB4] rounded-full flex items-center justify-center text-white font-bold mr-4">
+                      SM
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">
+                        Sarah Martinez
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Small Business Owner
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white shadow-lg hover-lift border-0 rounded-2xl">
+                <CardContent className="pt-8">
+                  <div className="flex items-center mb-4">
+                    <Quote className="h-8 w-8 text-[#3B7FB4] mr-3" />
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 fill-yellow-400 text-yellow-400"
                         />
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="h-full">
-                      <div className="relative h-full flex items-center justify-center">
-                        <img
-                          src="/assets/aftab-pirmohammad.webp"
-                          alt="Aftab Pirmohammad, CPA"
-                          className="rounded-lg shadow-lg max-w-full max-h-full object-contain"
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-6 italic leading-relaxed">
+                    &quot;Professional, reliable, and always available when we
+                    need them. Their expertise in tax planning has been
+                    invaluable for our growing company. We couldn't ask for
+                    better service.&quot;
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-[#3B7FB4] rounded-full flex items-center justify-center text-white font-bold mr-4">
+                      MJ
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">
+                        Michael Johnson
+                      </p>
+                      <p className="text-sm text-gray-500">CEO, Tech Startup</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white shadow-lg hover-lift border-0 rounded-2xl">
+                <CardContent className="pt-8">
+                  <div className="flex items-center mb-4">
+                    <Quote className="h-8 w-8 text-[#3B7FB4] mr-3" />
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 fill-yellow-400 text-yellow-400"
                         />
-                      </div>
-                    </CarouselItem>
-                  </CarouselContent>
-                  <CarouselPrevious className="left-2" />
-                  <CarouselNext className="right-2" />
-                </Carousel>
-              </div>
-              <div className="lg:w-1/2">
-                <Carousel className="w-full">
-                  <CarouselContent>
-                    <CarouselItem>
-                      <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                          Our Approach
-                        </h2>
-                        <p className="text-lg text-gray-600 mb-6">
-                          At AP CPA PLLC, we believe in providing accurate,
-                          compliant, and responsive accounting services. Our
-                          team of experienced professionals is dedicated to
-                          helping you navigate complex financial matters with
-                          confidence and clarity.
-                        </p>
-                        <p className="text-lg text-gray-600 mb-8">
-                          We take the time to understand your unique situation
-                          and provide personalized solutions that meet your
-                          specific needs. Our commitment to excellence and
-                          attention to detail ensures that you receive the
-                          highest quality service.
-                        </p>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                          Expert Team
-                        </h2>
-                        <p className="text-lg text-gray-600 mb-6">
-                          Our dedicated team of certified professionals brings
-                          years of experience in accounting, tax preparation,
-                          and business advisory services. We stay current with
-                          the latest regulations and best practices to serve you
-                          better.
-                        </p>
-                        <p className="text-lg text-gray-600 mb-8">
-                          From individual tax returns to complex business
-                          compliance, our team has the expertise to handle your
-                          financial needs with precision and care. We're
-                          committed to building long-term relationships based on
-                          trust and results.
-                        </p>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                          Leadership Excellence
-                        </h2>
-                        <p className="text-lg text-gray-600 mb-6">
-                          Led by experienced CPA professionals, AP CPA PLLC
-                          combines technical expertise with personalized
-                          service. Our leadership team brings decades of
-                          combined experience in public accounting and business
-                          advisory services.
-                        </p>
-                        <p className="text-lg text-gray-600 mb-8">
-                          We understand that every client's situation is unique,
-                          which is why we take a consultative approach to
-                          understand your goals and provide tailored solutions
-                          that drive results for your business or personal
-                          financial objectives.
-                        </p>
-                      </div>
-                    </CarouselItem>
-                  </CarouselContent>
-                  <CarouselPrevious className="left-2" />
-                  <CarouselNext className="right-2" />
-                </Carousel>
-                <div className="mt-8">
-                  <Button asChild>
-                    <a href="/about">Learn More About Us</a>
-                  </Button>
-                </div>
-              </div>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-6 italic leading-relaxed">
+                    &quot;After struggling with our previous accountant, AP CPA
+                    PLLC was a breath of fresh air. They organized our books,
+                    helped us understand our finances, and provided excellent
+                    tax advice.&quot;
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-[#3B7FB4] rounded-full flex items-center justify-center text-white font-bold mr-4">
+                      LC
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Lisa Chen</p>
+                      <p className="text-sm text-gray-500">Restaurant Owner</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center mt-12">
+              <Button asChild variant="outline" className="group">
+                <a href="/contact">
+                  Join Our Satisfied Clients
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
             </div>
           </div>
         </section>

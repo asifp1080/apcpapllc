@@ -6,48 +6,48 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Company Info */}
-          <div>
-            <div className="flex items-center mb-4">
+          <div className="text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start mb-4">
               <img
                 src="/assets/apcpa_logo.webp"
                 alt="AP CPA PLLC"
                 className="h-8 w-auto filter brightness-0 invert"
               />
             </div>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 text-sm md:text-base leading-relaxed">
               Professional accounting and tax services in Houston, TX. We
               provide accurate, compliant, and responsive financial solutions.
             </p>
           </div>
 
           {/* Contact Information */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
-            <div className="space-y-3">
-              <div className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 mt-0.5 text-[#3B7FB4]" />
-                <div>
+            <div className="space-y-4">
+              <div className="flex items-start justify-center md:justify-start">
+                <MapPin className="h-5 w-5 mr-3 mt-0.5 text-[#3B7FB4] flex-shrink-0" />
+                <div className="text-sm md:text-base">
                   <p>6161 Savoy Dr #610</p>
                   <p>Houston, TX 77036</p>
                 </div>
               </div>
-              <div className="flex items-center">
-                <Phone className="h-5 w-5 mr-3 text-[#3B7FB4]" />
+              <div className="flex items-center justify-center md:justify-start">
+                <Phone className="h-5 w-5 mr-3 text-[#3B7FB4] flex-shrink-0" />
                 <a
                   href="tel:+17133382520"
-                  className="hover:text-[#3B7FB4] transition-colors"
+                  className="hover:text-[#3B7FB4] transition-colors text-sm md:text-base min-h-[44px] flex items-center"
                   onClick={trackPhoneCall}
                 >
                   (713) 338-2520
                 </a>
               </div>
-              <div className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-[#3B7FB4]" />
+              <div className="flex items-center justify-center md:justify-start">
+                <Mail className="h-5 w-5 mr-3 text-[#3B7FB4] flex-shrink-0" />
                 <a
                   href="mailto:contactus@apcpapllc.com"
-                  className="hover:text-[#3B7FB4] transition-colors"
+                  className="hover:text-[#3B7FB4] transition-colors text-sm md:text-base min-h-[44px] flex items-center break-all"
                   onClick={trackEmailClick}
                 >
                   contactus@apcpapllc.com
@@ -57,24 +57,24 @@ const Footer = () => {
           </div>
 
           {/* Legal Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <div className="space-y-2">
+            <div className="space-y-3">
               <a
                 href="/terms"
-                className="block text-gray-300 hover:text-white transition-colors"
+                className="block text-gray-300 hover:text-white transition-colors text-sm md:text-base py-2 min-h-[44px] flex items-center justify-center md:justify-start"
               >
                 Terms of Use
               </a>
               <a
                 href="/privacy"
-                className="block text-gray-300 hover:text-white transition-colors"
+                className="block text-gray-300 hover:text-white transition-colors text-sm md:text-base py-2 min-h-[44px] flex items-center justify-center md:justify-start"
               >
                 Privacy Policy
               </a>
               <a
                 href="/disclaimer"
-                className="block text-gray-300 hover:text-white transition-colors"
+                className="block text-gray-300 hover:text-white transition-colors text-sm md:text-base py-2 min-h-[44px] flex items-center justify-center md:justify-start"
               >
                 Website Disclaimer
               </a>

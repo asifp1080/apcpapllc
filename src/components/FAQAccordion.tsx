@@ -70,31 +70,34 @@ const FAQAccordion = ({
         })}
       </script>
 
-      <Card className="border-none shadow-none">
-        <CardContent className="p-6">
+      <Card className="border-none shadow-none bg-gradient-to-br from-gray-50 to-white rounded-3xl">
+        <CardContent className="p-8 md:p-12">
           {title && (
-            <h2 className="text-2xl font-semibold text-center mb-2 text-gray-800">
-              {title}
-            </h2>
+            <div className="text-center mb-12 animate-fade-in">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 gradient-text">
+                {title}
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#3B7FB4] to-[#336a96] mx-auto mb-6 rounded-full"></div>
+            </div>
           )}
 
           {description && (
-            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-center text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               {description}
             </p>
           )}
 
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-b border-gray-200"
+                className="border-0 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
-                <AccordionTrigger className="text-left font-medium text-gray-800 hover:text-[#3B7FB4]">
+                <AccordionTrigger className="text-left font-semibold text-lg text-gray-800 hover:text-[#3B7FB4] px-8 py-6 hover:no-underline transition-colors duration-300">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pt-2 pb-4">
+                <AccordionContent className="text-gray-600 px-8 pb-6 pt-0 text-lg leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

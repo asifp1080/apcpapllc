@@ -36,10 +36,10 @@ const MapLocation = ({
 
   return (
     <div className="w-full bg-white">
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
         {/* Map Embed */}
         <div className="w-full lg:w-3/5">
-          <div className="aspect-video w-full h-full rounded-lg overflow-hidden border border-gray-200">
+          <div className="aspect-video w-full h-full rounded-lg overflow-hidden border border-gray-200 min-h-[300px] md:min-h-[400px]">
             <iframe
               src={embedUrl}
               width="100%"
@@ -75,7 +75,7 @@ const MapLocation = ({
                     <Button
                       variant="outline"
                       size="sm"
-                      className="mt-2 text-blue-600"
+                      className="mt-2 text-blue-600 min-h-[44px] px-4"
                       onClick={() => window.open(googleMapsUrl, "_blank")}
                     >
                       <Navigation className="h-4 w-4 mr-2" />

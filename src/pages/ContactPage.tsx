@@ -7,7 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import MapLocation from "@/components/MapLocation";
 
@@ -66,197 +75,289 @@ const ContactPage = () => {
         </script>
       </Helmet>
       <div className="flex flex-col min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-[#3B7FB4] to-[#336a96] text-white py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Contact Us
+        {/* Hero Section with CTA */}
+        <section className="relative bg-gradient-to-br from-[#3B7FB4] via-[#336a96] to-[#2d5a7d] text-white py-20 lg:py-28 overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-8 leading-tight">
+                Let's Work Together
               </h1>
-              <p className="text-xl text-blue-100 mb-8">
-                Get in touch with our team of accounting professionals
+              <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Ready to take control of your finances? Our expert team is here
+                to provide personalized accounting solutions.
               </p>
-              <p className="text-lg text-blue-50 max-w-3xl mx-auto">
-                We're here to answer your questions and help you with all your
-                accounting and tax needs. Contact us today to schedule a
-                consultation.
-              </p>
+
+              {/* Large CTA Button */}
+              <div className="mb-12">
+                <Button
+                  size="lg"
+                  className="bg-white text-[#3B7FB4] hover:bg-gray-50 text-lg px-12 py-6 h-auto font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 group"
+                  onClick={() => window.open("tel:+17133382520", "_self")}
+                >
+                  <Calendar className="mr-3 h-6 w-6" />
+                  Schedule Your Free Consultation
+                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+
+              {/* Quick Contact Options */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a
+                  href="tel:+17133382520"
+                  className="flex items-center text-white/90 hover:text-white transition-colors group"
+                >
+                  <Phone className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                  <span className="text-lg font-medium">(713) 338-2520</span>
+                </a>
+                <div className="hidden sm:block w-px h-6 bg-white/30"></div>
+                <a
+                  href="mailto:info@apcpapllc.com"
+                  className="flex items-center text-white/90 hover:text-white transition-colors group"
+                >
+                  <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                  <span className="text-lg font-medium">
+                    info@apcpapllc.com
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Information */}
-        <section className="py-16">
+        {/* Contact Methods Grid */}
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Get in Touch
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+                Multiple Ways to Connect
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Reach out to us using any of the methods below. We look forward
-                to hearing from you.
+                Choose the method that works best for you. We're committed to
+                responding quickly and professionally.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center text-[#3B7FB4] mx-auto mb-4">
-                    <Phone className="h-6 w-6" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+              <Card className="text-center hover-lift border-0 shadow-lg">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#3B7FB4] to-[#336a96] flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
+                    <Phone className="h-8 w-8" />
                   </div>
-                  <CardTitle>Phone</CardTitle>
+                  <CardTitle className="text-xl font-serif">Call Us</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <a
                     href="tel:+17133382520"
-                    className="text-[#3B7FB4] hover:text-[#336a96] font-semibold"
+                    className="text-[#3B7FB4] hover:text-[#336a96] font-semibold text-lg transition-colors"
                   >
                     (713) 338-2520
                   </a>
-                  <p className="text-sm text-gray-500 mt-2">Click to call</p>
+                  <p className="text-sm text-gray-500 mt-3">
+                    Immediate assistance available
+                  </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center text-[#3B7FB4] mx-auto mb-4">
-                    <Mail className="h-6 w-6" />
+              <Card className="text-center hover-lift border-0 shadow-lg">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#3B7FB4] to-[#336a96] flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
+                    <Mail className="h-8 w-8" />
                   </div>
-                  <CardTitle>Email</CardTitle>
+                  <CardTitle className="text-xl font-serif">Email Us</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <a
                     href="mailto:info@apcpapllc.com"
-                    className="text-[#3B7FB4] hover:text-[#336a96] font-semibold"
+                    className="text-[#3B7FB4] hover:text-[#336a96] font-semibold text-lg transition-colors break-all"
                   >
                     info@apcpapllc.com
                   </a>
-                  <p className="text-sm text-gray-500 mt-2">Send us an email</p>
+                  <p className="text-sm text-gray-500 mt-3">
+                    We respond within 24 hours
+                  </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center text-[#3B7FB4] mx-auto mb-4">
-                    <MapPin className="h-6 w-6" />
+              <Card className="text-center hover-lift border-0 shadow-lg">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#3B7FB4] to-[#336a96] flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
+                    <MapPin className="h-8 w-8" />
                   </div>
-                  <CardTitle>Address</CardTitle>
+                  <CardTitle className="text-xl font-serif">Visit Us</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
+                <CardContent className="pt-0">
+                  <p className="text-gray-700 font-medium">
                     6161 Savoy Dr #610
                     <br />
                     Houston, TX 77036
                   </p>
-                  <p className="text-sm text-gray-500 mt-2">Visit our office</p>
+                  <p className="text-sm text-gray-500 mt-3">
+                    Professional office setting
+                  </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center text-[#3B7FB4] mx-auto mb-4">
-                    <Clock className="h-6 w-6" />
+              <Card className="text-center hover-lift border-0 shadow-lg">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#3B7FB4] to-[#336a96] flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
+                    <Clock className="h-8 w-8" />
                   </div>
-                  <CardTitle>Office Hours</CardTitle>
+                  <CardTitle className="text-xl font-serif">
+                    Office Hours
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="text-gray-600">
-                    <p>Mon - Fri: 9:00 AM - 5:00 PM</p>
-                    <p>Sat - Sun: Closed</p>
+                <CardContent className="pt-0">
+                  <div className="text-gray-700 font-medium">
+                    <p>Monday - Friday</p>
+                    <p>9:00 AM - 5:00 PM</p>
                   </div>
-                  <p className="text-sm text-gray-500 mt-2">Business hours</p>
+                  <p className="text-sm text-gray-500 mt-3">
+                    Appointments available
+                  </p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </section>
 
-        {/* Contact Form and Map */}
-        <section className="py-16 bg-gray-50">
+        {/* Contact Form and Map Section */}
+        <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col lg:flex-row gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               {/* Contact Form */}
-              <div className="lg:w-1/2">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-2xl">
-                      Send Us a Message
-                    </CardTitle>
-                    <CardDescription>
-                      Fill out the form below and we'll get back to you as soon
-                      as possible.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ContactForm />
-                  </CardContent>
-                </Card>
+              <div className="order-2 lg:order-1">
+                <div className="mb-8">
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                    Send Us a Message
+                  </h2>
+                  <p className="text-lg text-gray-600">
+                    Fill out the form below with your details and we'll get back
+                    to you promptly with personalized assistance.
+                  </p>
+                </div>
+                <ContactForm />
               </div>
 
               {/* Map */}
-              <div className="lg:w-1/2">
-                <Card className="h-full">
-                  <CardHeader>
-                    <CardTitle className="text-2xl">Our Location</CardTitle>
-                    <CardDescription>
-                      Visit us at our Houston office location.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <MapLocation />
-                  </CardContent>
-                </Card>
+              <div className="order-1 lg:order-2">
+                <div className="mb-8">
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                    Find Our Office
+                  </h2>
+                  <p className="text-lg text-gray-600 mb-6">
+                    Located in the heart of Houston, our office is easily
+                    accessible with convenient parking available.
+                  </p>
+                </div>
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-0">
+                  <MapLocation />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Additional Information */}
-        <section className="py-16">
+        {/* Process Section */}
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <Card>
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">What to Expect</CardTitle>
-                  <CardDescription>
-                    Here's what happens when you contact us
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div>
-                      <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center text-[#3B7FB4] mx-auto mb-4">
-                        <span className="font-bold text-lg">1</span>
-                      </div>
-                      <h3 className="font-semibold mb-2">Initial Contact</h3>
-                      <p className="text-gray-600 text-sm">
-                        We'll respond to your inquiry within 24 hours to
-                        schedule an initial consultation.
-                      </p>
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+                  Your Journey with Us
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Here's what you can expect when you choose AP CPA PLLC as your
+                  trusted accounting partner.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Card className="text-center hover-lift border-0 shadow-lg bg-white">
+                  <CardHeader className="pb-6">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#3B7FB4] to-[#336a96] flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
+                      <span className="font-bold text-2xl">1</span>
                     </div>
-                    <div>
-                      <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center text-[#3B7FB4] mx-auto mb-4">
-                        <span className="font-bold text-lg">2</span>
-                      </div>
-                      <h3 className="font-semibold mb-2">Consultation</h3>
-                      <p className="text-gray-600 text-sm">
-                        We'll discuss your needs, answer questions, and provide
-                        recommendations for your situation.
-                      </p>
+                    <CardTitle className="text-xl font-serif">
+                      Initial Consultation
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">
+                      We'll schedule a comprehensive consultation to understand
+                      your unique financial situation and goals.
+                    </p>
+                    <div className="flex items-center justify-center mt-4 text-[#3B7FB4]">
+                      <CheckCircle className="h-5 w-5 mr-2" />
+                      <span className="text-sm font-medium">
+                        Free consultation
+                      </span>
                     </div>
-                    <div>
-                      <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center text-[#3B7FB4] mx-auto mb-4">
-                        <span className="font-bold text-lg">3</span>
-                      </div>
-                      <h3 className="font-semibold mb-2">Get Started</h3>
-                      <p className="text-gray-600 text-sm">
-                        Once we agree on the scope of work, we'll begin
-                        providing the services you need.
-                      </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center hover-lift border-0 shadow-lg bg-white">
+                  <CardHeader className="pb-6">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#3B7FB4] to-[#336a96] flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
+                      <span className="font-bold text-2xl">2</span>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                    <CardTitle className="text-xl font-serif">
+                      Customized Strategy
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">
+                      We'll develop a tailored approach that addresses your
+                      specific needs and maximizes your financial potential.
+                    </p>
+                    <div className="flex items-center justify-center mt-4 text-[#3B7FB4]">
+                      <CheckCircle className="h-5 w-5 mr-2" />
+                      <span className="text-sm font-medium">
+                        Personalized plan
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center hover-lift border-0 shadow-lg bg-white">
+                  <CardHeader className="pb-6">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#3B7FB4] to-[#336a96] flex items-center justify-center text-white mx-auto mb-6 shadow-lg">
+                      <span className="font-bold text-2xl">3</span>
+                    </div>
+                    <CardTitle className="text-xl font-serif">
+                      Ongoing Partnership
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">
+                      We'll provide continuous support and guidance, ensuring
+                      your financial success throughout the year.
+                    </p>
+                    <div className="flex items-center justify-center mt-4 text-[#3B7FB4]">
+                      <CheckCircle className="h-5 w-5 mr-2" />
+                      <span className="text-sm font-medium">
+                        Year-round support
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Bottom CTA */}
+              <div className="text-center mt-16">
+                <Button
+                  size="lg"
+                  className="bg-[#3B7FB4] hover:bg-[#336a96] text-white text-lg px-10 py-6 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                  onClick={() => window.open("tel:+17133382520", "_self")}
+                >
+                  <Phone className="mr-3 h-5 w-5" />
+                  Call Now to Get Started
+                  <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <p className="text-sm text-gray-500 mt-4">
+                  Ready to take the next step? We're here to help.
+                </p>
+              </div>
             </div>
           </div>
         </section>

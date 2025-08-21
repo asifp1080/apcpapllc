@@ -19,11 +19,11 @@ const ServiceCard = ({
   className = "",
 }: ServiceCardProps) => {
   const defaultIcon = (
-    <div className="w-12 h-12 rounded-full bg-[#3B7FB4]/10 flex items-center justify-center">
+    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3B7FB4]/10 to-[#3B7FB4]/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="28"
+        height="28"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -43,24 +43,28 @@ const ServiceCard = ({
 
   return (
     <Card
-      className={`h-full hover:shadow-lg transition-shadow duration-300 bg-white ${className}`}
+      className={`group h-full hover-lift bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden ${className}`}
     >
-      <CardHeader>
-        <div className="flex items-center gap-4 mb-2">
+      <CardHeader className="pb-4">
+        <div className="flex items-center gap-6 mb-4">
           {icon || defaultIcon}
         </div>
-        <CardTitle className="text-xl text-gray-800">{title}</CardTitle>
+        <CardTitle className="text-2xl font-serif text-gray-800 group-hover:text-[#3B7FB4] transition-colors duration-300">
+          {title}
+        </CardTitle>
       </CardHeader>
-      <CardContent className="flex-1 flex flex-col">
-        <p className="text-gray-600 mb-6 flex-1">{description}</p>
+      <CardContent className="flex-1 flex flex-col pt-0">
+        <p className="text-gray-600 mb-8 flex-1 leading-relaxed text-lg">
+          {description}
+        </p>
         <Button
           asChild
           variant="link"
-          className="p-0 h-auto text-[#3B7FB4] hover:text-[#336a96] self-start"
+          className="p-0 h-auto text-[#3B7FB4] hover:text-[#336a96] self-start font-semibold text-lg"
         >
-          <a href={link} className="flex items-center group">
+          <a href={link} className="flex items-center group/link">
             Learn More
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-3 h-5 w-5 group-hover/link:translate-x-2 transition-transform duration-300" />
           </a>
         </Button>
       </CardContent>

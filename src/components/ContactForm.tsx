@@ -159,10 +159,10 @@ const ContactForm = ({
   ];
 
   return (
-    <div
-      className={`bg-white p-6 rounded-lg shadow-sm border border-gray-100 ${className}`}
-    >
-      <h2 className="text-2xl font-semibold text-gray-800 mb-6">Contact Us</h2>
+    <div className={`bg-white p-8 rounded-2xl shadow-xl border-0 ${className}`}>
+      <h2 className="text-3xl font-serif font-bold text-gray-800 mb-8">
+        Contact Us
+      </h2>
 
       {submitStatus === "success" && (
         <Alert className="mb-6 bg-green-50 border-green-200">
@@ -184,8 +184,8 @@ const ContactForm = ({
       )}
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <FormField
               control={form.control}
               name="name"
@@ -193,7 +193,11 @@ const ContactForm = ({
                 <FormItem>
                   <FormLabel>Full Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input
+                      placeholder="John Doe"
+                      className="min-h-[44px]"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -210,6 +214,7 @@ const ContactForm = ({
                     <Input
                       type="email"
                       placeholder="john@example.com"
+                      className="min-h-[44px]"
                       {...field}
                     />
                   </FormControl>
@@ -219,7 +224,7 @@ const ContactForm = ({
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <FormField
               control={form.control}
               name="phone"
@@ -227,7 +232,12 @@ const ContactForm = ({
                 <FormItem>
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl>
-                    <Input type="tel" placeholder="(123) 456-7890" {...field} />
+                    <Input
+                      type="tel"
+                      placeholder="(123) 456-7890"
+                      className="min-h-[44px]"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -245,7 +255,7 @@ const ContactForm = ({
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger className="min-h-[44px]">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                     </FormControl>
@@ -272,7 +282,7 @@ const ContactForm = ({
                 <FormControl>
                   <Textarea
                     placeholder="Please provide details about your inquiry..."
-                    className="min-h-[120px]"
+                    className="min-h-[120px] resize-none"
                     {...field}
                   />
                 </FormControl>
@@ -316,7 +326,8 @@ const ContactForm = ({
 
           <Button
             type="submit"
-            className="w-full md:w-auto bg-[#3B7FB4] hover:bg-[#336a96]"
+            size="lg"
+            className="w-full md:w-auto bg-[#3B7FB4] hover:bg-[#336a96] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 font-semibold min-h-[48px] px-8"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Submit Inquiry"}
