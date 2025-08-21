@@ -152,17 +152,30 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <!-- Google Analytics 4 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      // Only load Google Analytics in production
+      if (
+        window.location.hostname !== "localhost" &&
+        window.location.hostname !== "127.0.0.1"
+      ) {
+        (function () {
+          var script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-XXXXXXXXXX", {
+            page_title: document.title,
+            page_location: window.location.href,
+          });
+        })();
       }
-      gtag("js", new Date());
-      gtag("config", "GA_MEASUREMENT_ID");
     </script>
 
     <script src="https://api.tempo.build/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js"></script>

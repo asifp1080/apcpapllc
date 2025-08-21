@@ -1,28 +1,32 @@
-// Contact form submission handler
-// This is a placeholder implementation for demonstration
-// In production, this would be replaced with a proper serverless function
-// or backend API endpoint
+// Vercel Serverless Function for contact form submission
+// This handles contact form submissions with validation and security
 
-// For Netlify Functions, this would go in netlify/functions/contact.js
-// For Vercel, this would go in api/contact.js
-// For other platforms, implement according to their serverless function structure
+export default async function handler(req, res) {
+  // Set CORS headers
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+  );
 
-exports.handler = async (event, context) => {
+  // Handle preflight requests
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
   // Only allow POST requests
-  if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      headers: {
-        Allow: "POST",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ error: "Method not allowed" }),
-    };
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
     // Parse the request body
-    const data = JSON.parse(event.body);
+    const data = req.body;
 
     // Basic validation
     const requiredFields = [
@@ -36,39 +40,21 @@ exports.handler = async (event, context) => {
     const missingFields = requiredFields.filter((field) => !data[field]);
 
     if (missingFields.length > 0) {
-      return {
-        statusCode: 400,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          error: "Missing required fields",
-          missingFields,
-        }),
-      };
+      return res.status(400).json({
+        error: "Missing required fields",
+        missingFields,
+      });
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
-      return {
-        statusCode: 400,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ error: "Invalid email format" }),
-      };
+      return res.status(400).json({ error: "Invalid email format" });
     }
 
     // Validate privacy consent
     if (!data.privacyConsent) {
-      return {
-        statusCode: 400,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ error: "Privacy consent is required" }),
-      };
+      return res.status(400).json({ error: "Privacy consent is required" });
     }
 
     // Here you would typically:
@@ -82,39 +68,25 @@ exports.handler = async (event, context) => {
       ...data,
       timestamp: new Date().toISOString(),
       ip:
-        event.headers["x-forwarded-for"] ||
-        event.headers["x-real-ip"] ||
-        "unknown",
-      userAgent: event.headers["user-agent"] || "unknown",
+        req.headers["x-forwarded-for"] || req.headers["x-real-ip"] || "unknown",
+      userAgent: req.headers["user-agent"] || "unknown",
     });
 
     // Simulate processing time
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    return {
-      statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        success: true,
-        message: "Thank you for your inquiry. We will get back to you soon.",
-        submissionId: `sub_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-      }),
-    };
+    return res.status(200).json({
+      success: true,
+      message: "Thank you for your inquiry. We will get back to you soon.",
+      submissionId: `sub_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+    });
   } catch (error) {
     console.error("Contact form error:", error);
 
-    return {
-      statusCode: 500,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        error: "Internal server error",
-        message:
-          "There was an error processing your request. Please try again later.",
-      }),
-    };
+    return res.status(500).json({
+      error: "Internal server error",
+      message:
+        "There was an error processing your request. Please try again later.",
+    });
   }
-};
+}
